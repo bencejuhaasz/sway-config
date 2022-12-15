@@ -1,0 +1,4 @@
+[options]
+font = Source Code Pro 12
+[colors]
+background = rgba(0, 0, 0, 0.9)
