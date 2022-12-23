@@ -1,3 +1,7 @@
+# clipbd
+bindsym Mod1+c exec wl_copyd
+bindsym Mod1+v exec wl_pasted
+
 input * {
     xkb_layout "hu"
     xkb_variant "colemak,,typewriter"

@@ -1,0 +1,30 @@
+{
+    "label" : "lock",
+    "action" : "lock.sh",
+    "text" : "Lock",
+    "keybind" : "l"
+}
+{
+    "label" : "logout",
+    "action" : "loginctl terminate-user $USER",
+    "text" : "Logout",
+    "keybind" : "e"
+}
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "Shutdown",
+    "keybind" : "o"
+}
+{
+    "label" : "suspend",
+    "action" : "suspend.sh",
+    "text" : "Suspend",
+    "keybind" : "s"
+}
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "Reboot",
+    "keybind" : "r"
+}
