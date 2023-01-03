@@ -127,7 +127,7 @@ input <identifier> xkb_model "pc101"
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
-# Read `man 5 sway` for a complete reference.
+# Read man 5 sway for a complete reference.
 font "Source Code Pro 14"
 ### Variables
 #
@@ -186,7 +186,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #   }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+# Read man 5 sway-input for more information about this section.
 
 ### Key bindings
 #
@@ -330,7 +330,7 @@ bindsym $mod+r mode "resize"
 #
 # Status Bar:
 #
-# Read `man 5 sway-bar` for more information about this section.
+# Read man 5 sway-bar for more information about this section.
 bar {
 	swaybar_command waybar
 }
@@ -342,20 +342,9 @@ EOF
 echo $swaycfg > ~/$home/.config/sway/config
 
 #waybar
-wbcfg=($cat <<EOF
-// =============================================================================
-//
-// Waybar configuration (https://hg.sr.ht/~begs/dotfiles)
-//
-// Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
-//
-// =============================================================================
+wbcfg=$(cat <<EOF
 
 {
-    // -------------------------------------------------------------------------
-    // Global configuration
-    // -------------------------------------------------------------------------
-
     "layer": "top",
     "position": "top",
     "height": 21,
