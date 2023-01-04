@@ -339,7 +339,7 @@ include /etc/sway/config.d/*
 
 EOF
 )
-echo $swaycfg > ~/$home/.config/sway/config
+echo "$swaycfg" > ~/$home/.config/sway/config
 
 #waybar
 wbcfg=$(cat <<EOF
