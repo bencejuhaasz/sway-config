@@ -35,8 +35,8 @@ metadata="creation_profile_name = \"generic\""
 
 
 mkdir -p ~/$home
-echo $profile > ~/$svdir/services.toml
-echo $metadata > ~/$svdir/metadata_v1.toml
+echo "$profile" > ~/$svdir/services.toml
+echo "$metadata" > ~/$svdir/metadata_v1.toml
 
 #zshrc
 echo "export HOST=$1" > ~/$home/.zshrc
@@ -51,7 +51,7 @@ EOF
 )
 
 mkdir -p ~/$home/.config/termite
-echo $tconf > ~/$home/.config/termite/config
+echo "$tconf" > ~/$home/.config/termite/config
 
 #sway
 mkdir -p ~/$home/.config/sway
@@ -583,7 +583,7 @@ EOF
 )
 
 mkdir -p ~/$home/.config/waybar
-echo $wbcfg > ~/$home/.config/waybar/config
+echo "$wbcfg" > ~/$home/.config/waybar/config
 
 wbcss=$(cat << EOF
 /* =============================================================================
@@ -889,6 +889,5 @@ wbcss=$(cat << EOF
 EOF
 )
 
-echo $wbcss > ~/$home/.config/waybar/style.css
+echo "$wbcss" > ~/$home/.config/waybar/style.css
 cp -r ~/.config/dconf ~/$home/.config/
-
