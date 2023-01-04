@@ -116,11 +116,11 @@ for_window [app_id="firefoxdeveloperedition"] inhibit_idle fullscreen
 
 
 
-set $gnome-schema org.gnome.desktop.interface
+set \$gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Arc-Dark'
-    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
+    gsettings set \$gnome-schema gtk-theme 'Arc-Dark'
+    gsettings set \$gnome-schema icon-theme 'Papirus-Dark'
 }
 input <identifier> xkb_model "pc101"
 # Default config for sway
@@ -132,24 +132,24 @@ font "Source Code Pro 14"
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-set $mod Mod1
+set \$mod Mod1
 # Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
+set \$left h
+set \$down j
+set \$up k
+set \$right l
 # Your preferred terminal emulator
-set $theme /usr/share/sway/themes/matcha-green
-set $term termite --config=$theme/termite
-set $term_float_portrait $term --name=floating_shell_portrait --exec
-set $term_float $term --name=floating_shell --exec
+set \$theme /usr/share/sway/themes/matcha-green
+set \$term termite --config=\$theme/termite
+set \$term_float_portrait \$term --name=floating_shell_portrait --exec
+set \$term_float \$term --name=floating_shell --exec
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-#set $menu wofi --show run
-for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
-set $menu exec $term_float --class=launcher -e /home/user/sway-launcher-desktop/sway-launcher-desktop.sh
+#set \$menu wofi --show run
+for_window [app_id="^launcher\$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
+set \$menu exec \$term_float --class=launcher -e /home/user/sway-launcher-desktop/sway-launcher-desktop.sh
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -193,103 +193,103 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym \$mod+Return exec \$term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym \$mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym \$mod+d exec \$menu
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
+    # Drag floating windows by holding down \$mod and left mouse button.
+    # Resize them with right mouse button + \$mod.
     # Despite the name, also works for non-floating windows.
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
-    floating_modifier $mod normal
+    floating_modifier \$mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym \$mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-    bindsym $mod+Shift+e exec wlogout
+    #bindsym \$mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym \$mod+Shift+e exec wlogout
 #
 # Moving around:
 #
     # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    bindsym \$mod+\$left focus left
+    bindsym \$mod+\$down focus down
+    bindsym \$mod+\$up focus up
+    bindsym \$mod+\$right focus right
+    # Or use \$mod+[up|down|left|right]
+    bindsym \$mod+Left focus left
+    bindsym \$mod+Down focus down
+    bindsym \$mod+Up focus up
+    bindsym \$mod+Right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
+    bindsym \$mod+Shift+\$left move left
+    bindsym \$mod+Shift+\$down move down
+    bindsym \$mod+Shift+\$up move up
+    bindsym \$mod+Shift+\$right move right
     # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+    bindsym \$mod+Shift+Left move left
+    bindsym \$mod+Shift+Down move down
+    bindsym \$mod+Shift+Up move up
+    bindsym \$mod+Shift+Right move right
 #
 # Workspaces:
 #
     # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
+    bindsym \$mod+1 workspace number 1
+    bindsym \$mod+2 workspace number 2
+    bindsym \$mod+3 workspace number 3
+    bindsym \$mod+4 workspace number 4
+    bindsym \$mod+5 workspace number 5
+    bindsym \$mod+6 workspace number 6
+    bindsym \$mod+7 workspace number 7
+    bindsym \$mod+8 workspace number 8
+    bindsym \$mod+9 workspace number 9
+    bindsym \$mod+0 workspace number 10
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
+    bindsym \$mod+Shift+1 move container to workspace number 1
+    bindsym \$mod+Shift+2 move container to workspace number 2
+    bindsym \$mod+Shift+3 move container to workspace number 3
+    bindsym \$mod+Shift+4 move container to workspace number 4
+    bindsym \$mod+Shift+5 move container to workspace number 5
+    bindsym \$mod+Shift+6 move container to workspace number 6
+    bindsym \$mod+Shift+7 move container to workspace number 7
+    bindsym \$mod+Shift+8 move container to workspace number 8
+    bindsym \$mod+Shift+9 move container to workspace number 9
+    bindsym \$mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
+    # \$mod+b or \$mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym \$mod+b splith
+    bindsym \$mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym \$mod+s layout stacking
+    bindsym \$mod+w layout tabbed
+    bindsym \$mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    bindsym \$mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    bindsym \$mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    bindsym \$mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+    bindsym \$mod+a focus parent
 #
 # Scratchpad:
 #
@@ -297,11 +297,11 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    bindsym \$mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    bindsym \$mod+minus scratchpad show
 #
 # Resizing containers:
 #
@@ -310,10 +310,10 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym \$left resize shrink width 10px
+    bindsym \$down resize grow height 10px
+    bindsym \$up resize shrink height 10px
+    bindsym \$right resize grow width 10px
 
     # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
@@ -325,7 +325,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym \$mod+r mode "resize"
 
 #
 # Status Bar:
@@ -429,7 +429,7 @@ wbcfg=$(cat <<EOF
 
     "custom/layout": {
       //"exec": "~/.config/waybar/layout.sh",
-      "exec": "swaymsg --type get_inputs | grep \"xkb_active_layout_name\" | sed -u '1!d; s/^.*xkb_active_layout_name\": \"//; s/ (US)//; s/\",//' && swaymsg --type subscribe --monitor '[\"input\"]' | sed -u 's/^.*xkb_active_layout_name\": \"//; s/\",.*$//; s/ (US)//'",
+      "exec": "swaymsg --type get_inputs | grep \"xkb_active_layout_name\" | sed -u '1!d; s/^.*xkb_active_layout_name\": \"//; s/ (US)//; s/\",//' && swaymsg --type subscribe --monitor '[\"input\"]' | sed -u 's/^.*xkb_active_layout_name\": \"//; s/\",.*\$//; s/ (US)//'",
       //"interval": 5,
       "format": " {}", // Icon: keyboard
       // Signal sent by Sway key binding (~/.config/sway/key-bindings)
@@ -452,7 +452,7 @@ wbcfg=$(cat <<EOF
     	"format-ethernet": "{ifname}",
     	"format-disconnected": "󱘖",
     	"tooltip-format": "{ifname}: {ipaddr}",
-    	"on-click": "swaymsg exec \\$term_float iwctl"
+    	"on-click": "swaymsg exec $term_float iwctl"
     },
 
     "sway/mode": {
