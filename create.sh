@@ -165,9 +165,9 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+# exec swayidle -w \\
+#          timeout 300 'swaylock -f -c 000000' \\
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \\
 #          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -429,7 +429,7 @@ wbcfg=$(cat <<EOF
 
     "custom/layout": {
       //"exec": "~/.config/waybar/layout.sh",
-      "exec": "swaymsg --type get_inputs | grep \"xkb_active_layout_name\" | sed -u '1!d; s/^.*xkb_active_layout_name\": \"//; s/ (US)//; s/\",//' && swaymsg --type subscribe --monitor '[\"input\"]' | sed -u 's/^.*xkb_active_layout_name\": \"//; s/\",.*\$//; s/ (US)//'",
+      "exec": "swaymsg --type get_inputs | grep \"xkb_active_layout_name\" | sed -u '1!d; s/^.*xkb_active_layout_name\": \"//; s/ (US)//; s/\\",//' && swaymsg --type subscribe --monitor '[\\"input\\"]' | sed -u 's/^.*xkb_active_layout_name\\": \\"//; s/\\",.*$//; s/ (US)//'",
       //"interval": 5,
       "format": " {}", // Icon: keyboard
       // Signal sent by Sway key binding (~/.config/sway/key-bindings)
@@ -456,7 +456,7 @@ wbcfg=$(cat <<EOF
     },
 
     "sway/mode": {
-        "format": "<span style=\"italic\"> {}</span>", // Icon: expand-arrows-alt
+        "format": "<span style=\\"italic\\"> {}</span>", // Icon: expand-arrows-alt
         "tooltip": false
     },
 
@@ -515,7 +515,7 @@ wbcfg=$(cat <<EOF
     },
 
     "custom/alsa": {
-        "exec": "amixer get Master | sed -nre 's/.*\\[off\\].*/ muted/p; s/.*\\[(.*%)\\].*/ \\1/p'",
+        "exec": "amixer get Master | sed -nre 's/.*\\\[off\\\].*/ muted/p; s/.*\\\[(.*%)\\\].*/ \\\1/p'",
         "on-click": "amixer set Master toggle; pkill -x -RTMIN+11 waybar",
         "on-scroll-up": "amixer set Master 1+; pkill -x -RTMIN+11 waybar",
         "on-scroll-down": "amixer set Master 1-; pkill -x -RTMIN+11 waybar",
